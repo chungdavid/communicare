@@ -234,19 +234,22 @@ void loop() {
           setHappyScore=1;
         }
         break;
-      case 3041591040: //9 Nothing
+      case 3041591040: //9 Oops
+        Serial.print(millis()/1000);
         if(setPainScore==1){
-          Serial.print(millis()/1000);
           lcd.setCursor(13, 1);
           lcd.print("9");
           Serial.println(": Patient reported a pain score of 9");
           setPainScore=0;
         } else if (setHappyScore==1) {
-          Serial.print(millis()/1000);
           lcd.setCursor(13, 1);
           lcd.print("9");
           Serial.println(": Patient reported a happiness score of 9");
           setHappyScore=0;
+        } else {
+          lcd.setCursor(0, 1);
+          lcd.print("Oops            ");
+          Serial.println(": Patient said 'Oops'");
         }
         break;
     }
